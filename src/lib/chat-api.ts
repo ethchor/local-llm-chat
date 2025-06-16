@@ -1,5 +1,6 @@
 export async function sendMessage(prompt: string, apiKey: string, onChunk: (chunk: string) => void): Promise<void> {
-  const response = await fetch("https://localllm.qwantarc.com/chat", {
+   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const response = await fetch(`${apiUrl}/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
